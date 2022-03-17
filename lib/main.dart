@@ -18,7 +18,9 @@ import 'package:shopemakeup/Screens/productScreens/detail_product.dart';
 import 'package:shopemakeup/Screens/productScreens/prodct_page.dart';
 import 'package:shopemakeup/Screens/StatusScreen/success.dart';
 
-void main(List<String> args) {runApp(makup());}
+void main(List<String> args) {
+  runApp(makup());
+}
 
 class makup extends StatelessWidget {
   const makup({Key? key}) : super(key: key);

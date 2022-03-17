@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
-
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Column(
