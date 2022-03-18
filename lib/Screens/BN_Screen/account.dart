@@ -109,13 +109,18 @@ class AccountScreen extends StatelessWidget {
               height: 20.h,
             ),
             ListTile(
-              leading: CircleAvatar(child: Icon(Icons.verified_user,color: Color(0xffEF5DA8),),backgroundColor: Color(0xffE9E9E9),),
-              title: Text('Privacy Settings',style: TextStyleConst().customTextStyle(
+              onTap: (){
+                Navigator.pushNamed(context,'AboutUs_Screen');
+              },
+              leading: CircleAvatar(child: Icon(Icons.info,color: Color(0xffEF5DA8),),backgroundColor: Color(0xffE9E9E9),),
+              title: Text('About The App',style: TextStyleConst().customTextStyle(
                   fontFamily: 'inter',
                   size: 14,
                   color: Colors.black,
                   fontWeight: FontWeight.w700),),
-              trailing: IconButton(onPressed: (){},
+              trailing: IconButton(onPressed: (){
+                Navigator.pushNamed(context,'AboutUs_Screen');
+              },
                   icon: Icon(Icons.arrow_forward_ios)),
             ),
             SizedBox(

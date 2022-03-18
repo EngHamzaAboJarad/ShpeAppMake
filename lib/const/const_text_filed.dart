@@ -15,6 +15,7 @@ class text_filed {
   TextField TEXTINPUT(
       {String? src_img,
       String? hintText,
+        int? lineCount = 1,
       required TextEditingController controller,
       required TextInputType keyboardType  ,
       suffixIcon,
@@ -23,6 +24,7 @@ class text_filed {
       keyboardType:keyboardType,
       controller: controller,
       obscureText: obscureText,
+      maxLines: lineCount,
       style: TextStyleConst().customTextStyle(
           fontFamily: TextsConst().inter,
           size: 14,

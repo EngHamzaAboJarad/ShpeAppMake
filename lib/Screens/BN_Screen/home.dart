@@ -195,7 +195,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return ItemProduct().WidgetItems();
+                      return ItemProduct().WidgetItems(context);
                     },
                     itemCount: 5),
               ),

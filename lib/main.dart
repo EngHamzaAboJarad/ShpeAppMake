@@ -6,6 +6,7 @@ import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
 import 'package:shopemakeup/Screens/Profile/ChangePassword.dart';
 import 'package:shopemakeup/Screens/Profile/ChangePhoneNumbe.dart';
 import 'package:shopemakeup/Screens/Profile/Language.dart';
+import 'package:shopemakeup/Screens/Profile/about_us.dart';
 import 'package:shopemakeup/Screens/Profile/notification%20_setting.dart';
 import 'package:shopemakeup/Screens/Profile/setting.dart';
 import 'package:shopemakeup/Screens/StatusScreen/eror.dart';
@@ -14,6 +15,8 @@ import 'package:shopemakeup/Screens/auth/login_screen.dart';
 import 'package:shopemakeup/Screens/auth/sinup_screen.dart';
 import 'package:shopemakeup/Screens/home_page.dart';
 import 'package:shopemakeup/Screens/lunch_page.dart';
+import 'package:shopemakeup/Screens/productScreens/Review.dart';
+import 'package:shopemakeup/Screens/productScreens/WriteReview.dart';
 import 'package:shopemakeup/Screens/productScreens/detail_product.dart';
 import 'package:shopemakeup/Screens/productScreens/prodct_page.dart';
 import 'package:shopemakeup/Screens/StatusScreen/success.dart';
@@ -54,6 +57,9 @@ class makup extends StatelessWidget {
               'OrderFailedScreen_Screen': (context) => const OrderFailedScreen(),
               'ChangePhoneNumber_Screen': (context) => const ChangePhoneNumber(),
               'ChangePassword_Screen': (context) => const ChangePassword(),
+              'ReviewScreen_Screen': (context) => const ReviewScreen(),
+              'WriteReview_Screen': (context) => const WriteReview(),
+              'AboutUs_Screen': (context) => const AboutUs(),
             },
         ),
       ),
