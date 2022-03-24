@@ -15,7 +15,9 @@ class AuthCubitBloc extends Cubit<AuthStatusBloc> {
   TextEditingController CurrentPasswordController = TextEditingController();
   TextEditingController NewPasswordController = TextEditingController();
   TextEditingController RepeatNewPasswordController = TextEditingController();
-
+  TextEditingController SearchController = TextEditingController();
+  TextEditingController AddressOne = TextEditingController();
+  TextEditingController AddressTow = TextEditingController();
   bool visibilitys_obscureText = true;
   void setVisibility_obscureText(bool v) {
     emit(SetValueVis());

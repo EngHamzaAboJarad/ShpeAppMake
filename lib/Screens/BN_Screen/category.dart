@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatelessWidget  {
   const CategoryScreen({Key? key}) : super(key: key);
 
   @override

@@ -10,7 +10,7 @@ class AccountScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: SafeArea(
           child: Padding(
-        padding: EdgeInsets.only(top: 64.0.h, right: 32.h, left: 32.h),
+        padding: EdgeInsets.only(top: 20.0.h, right: 32.h, left: 32.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,13 +65,18 @@ class AccountScreen extends StatelessWidget {
               height: 20.h,
             ),
             ListTile(
+              onTap: (){
+                Navigator.pushNamed(context,'ShowAddress_Screen');
+              },
               leading: CircleAvatar(child: Icon(Icons.place,color: Color(0xffEF5DA8),),backgroundColor: Color(0xffE9E9E9),),
               title: Text('Shipping Address',style: TextStyleConst().customTextStyle(
                   fontFamily: 'inter',
                   size: 14,
                   color: Colors.black,
                   fontWeight: FontWeight.w700),),
-              trailing: IconButton(onPressed: (){},
+              trailing: IconButton(onPressed: (){
+                Navigator.pushNamed(context,'ShowAddress_Screen');
+              },
                   icon: Icon(Icons.arrow_forward_ios)),
             ),
             SizedBox(

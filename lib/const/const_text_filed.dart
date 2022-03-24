@@ -21,6 +21,8 @@ class text_filed {
       suffixIcon,
       required bool obscureText}) {
     return TextField(
+      cursorColor: Colors.black,
+      cursorHeight: 24.h,
       keyboardType:keyboardType,
       controller: controller,
       obscureText: obscureText,

@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shopemakeup/Block/auth_block/bloc_cubit_auth.dart';
 import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
+import 'package:shopemakeup/Screens/Profile/Address.dart';
 import 'package:shopemakeup/Screens/Profile/ChangePassword.dart';
 import 'package:shopemakeup/Screens/Profile/ChangePhoneNumbe.dart';
 import 'package:shopemakeup/Screens/Profile/Language.dart';
 import 'package:shopemakeup/Screens/Profile/about_us.dart';
+import 'package:shopemakeup/Screens/Profile/addAddress.dart';
 import 'package:shopemakeup/Screens/Profile/notification%20_setting.dart';
 import 'package:shopemakeup/Screens/Profile/setting.dart';
 import 'package:shopemakeup/Screens/StatusScreen/eror.dart';
@@ -41,7 +43,7 @@ class makup extends StatelessWidget {
         splitScreenMode: true,
         builder: () => MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute:'Lunch_Screen',
+            initialRoute:'ShowAddress_Screen',
             routes: {
               'Lunch_Screen': (context) => const LunchScreen(),
               '/': (context) => const HomeSecreen(),
@@ -60,6 +62,8 @@ class makup extends StatelessWidget {
               'ReviewScreen_Screen': (context) => const ReviewScreen(),
               'WriteReview_Screen': (context) => const WriteReview(),
               'AboutUs_Screen': (context) => const AboutUs(),
+              'ShowAddress_Screen': (context) => const ShowAddress(),
+              'AddAddress_Screen': (context) => const AddAddress(),
             },
         ),
       ),

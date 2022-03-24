@@ -26,7 +26,9 @@ class AboutUs extends StatelessWidget {
         elevation: 0,
         leading :
           IconButton(
-              onPressed: () {}, icon:   Icon(Icons.arrow_back_ios,size: 24.sm,))
+              onPressed: () {
+                Navigator.pop(context);
+              }, icon:   Icon(Icons.arrow_back_ios,size: 24.sm,))
         ,
         iconTheme: const IconThemeData(
           color: Colors.black,
