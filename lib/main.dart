@@ -32,39 +32,39 @@ class makup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers:
-        [
+      providers: [
         BlocProvider<AuthCubitBloc>(create: (context) => AuthCubitBloc()),
         BlocProvider<HomeCubitBloc>(create: (context) => HomeCubitBloc())
-        ],
+      ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: () => MaterialApp(
-            debugShowCheckedModeBanner: false,
-            initialRoute:'ShowAddress_Screen',
-            routes: {
-              'Lunch_Screen': (context) => const LunchScreen(),
-              '/': (context) => const HomeSecreen(),
-              'Login_Screen': (context) => const LoginScreen(),
-              'SingUp_Screen': (context) => const SingUpScreen(),
-              'ProductPage_Screen': (context) => const ProductPage(),
-              'ProductDesc_Screen': (context) => const ProductDesc(),
-              'Setting_Screen': (context) => const Setting(),
-              'NotificationSetting_Screen': (context) => const NotificationSetting(),
-              'Language_Screen': (context) => const Language(),
-              'Success_Screen': (context) => const SuccessScreen(),
-              'ErrorScreen_Screen': (context) => const ErrorScreen(),
-              'OrderFailedScreen_Screen': (context) => const OrderFailedScreen(),
-              'ChangePhoneNumber_Screen': (context) => const ChangePhoneNumber(),
-              'ChangePassword_Screen': (context) => const ChangePassword(),
-              'ReviewScreen_Screen': (context) => const ReviewScreen(),
-              'WriteReview_Screen': (context) => const WriteReview(),
-              'AboutUs_Screen': (context) => const AboutUs(),
-              'ShowAddress_Screen': (context) => const ShowAddress(),
-              'AddAddress_Screen': (context) => const AddAddress(),
-            },
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/',
+          routes: {
+            'Lunch_Screen': (context) => const LunchScreen(),
+            '/': (context) => const HomeSecreen(),
+            'Login_Screen': (context) => const LoginScreen(),
+            'SingUp_Screen': (context) => const SingUpScreen(),
+            'ProductPage_Screen': (context) => const ProductPage(),
+            'ProductDesc_Screen': (context) => const ProductDesc(),
+            'Setting_Screen': (context) => const Setting(),
+            'NotificationSetting_Screen': (context) =>
+                const NotificationSetting(),
+            'Language_Screen': (context) => const Language(),
+            'Success_Screen': (context) => const SuccessScreen(),
+            'ErrorScreen_Screen': (context) => const ErrorScreen(),
+            'OrderFailedScreen_Screen': (context) => const OrderFailedScreen(),
+            'ChangePhoneNumber_Screen': (context) => const ChangePhoneNumber(),
+            'ChangePassword_Screen': (context) => const ChangePassword(),
+            'ReviewScreen_Screen': (context) => const ReviewScreen(),
+            'WriteReview_Screen': (context) => const WriteReview(),
+            'AboutUs_Screen': (context) => const AboutUs(),
+            'ShowAddress_Screen': (context) => const ShowAddress(),
+            'AddAddress_Screen': (context) => const AddAddress(),
+          },
         ),
       ),
     );

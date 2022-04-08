@@ -17,10 +17,11 @@ class HomeCubitBloc extends Cubit<HomeStatusBloc> {
   List<bnScreen> HomeScreens = [
     bnScreen(title:   TextStyleConst().titleApp() ,body: HomeScreen()),
     bnScreen(title: null,body: const CategoryScreen()),
-    bnScreen(title: const Text('Cart',style: TextStyle(color: Color(0xffF178B6)),), body: const CartScreen()),
+    bnScreen(title: const Text('Cart',style: TextStyle(color: Color(0xffF178B6)),), body:  CartScreen()),
     bnScreen(title: null, body: const NotificationScreen()),
     bnScreen(title: null, body: const AccountScreen()),
   ];
+    TextEditingController copon = TextEditingController();
   int ChangIndexScreens = 0;
   void SetChangIndexScreens(int i){
     ChangIndexScreens = i;
