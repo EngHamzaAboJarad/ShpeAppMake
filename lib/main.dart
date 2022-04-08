@@ -42,7 +42,7 @@ class makup extends StatelessWidget {
         splitScreenMode: true,
         builder: () => MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/',
+          initialRoute: 'Lunch_Screen',
           routes: {
             'Lunch_Screen': (context) => const LunchScreen(),
             '/': (context) => const HomeSecreen(),
