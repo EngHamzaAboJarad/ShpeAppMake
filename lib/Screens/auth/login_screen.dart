@@ -27,52 +27,50 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Welcome Back!',
-                        style: TextStyleConst().customTextStyle(
-                            fontFamily: 'inter',
-                            size: 22,
-                            color: Color(0xffEF5DA8),
-                            fontWeight: FontWeight.w700),
-                      ),
+                      Text('Welcome Back!',
+                          style: TextStyle(
+                              fontFamily: 'inter',
+                              fontSize: 22.sp,
+                              color: Color(0xffEF5DA8),
+                              fontWeight: FontWeight.w700)),
                       SizedBox(
                         height: 11.h,
                       ),
                       Text(
                         'Sign in to your account',
-                        style: TextStyleConst().customTextStyle(
-                            fontFamily: 'inter',
-                            size: 14,
+                        style: TextStyle(
+                            fontSize: 14.sp,
                             color: Colors.black,
+                            fontFamily: 'inter',
                             fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: 64.h,
                       ),
                       text_filed().TEXTINPUT(
-                        keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.emailAddress,
                           src_img: 'email.png',
                           hintText: 'Email Address',
-                          controller: _object.EmailAdderss,
+                          controller: _object.EmailLogin,
                           obscureText: false),
                       SizedBox(height: 12.h),
                       text_filed().TEXTINPUT(
                           keyboardType: TextInputType.number,
                           src_img: 'lock.png',
                           hintText: 'Password',
-                          controller: _object.Password,
+                          controller: _object.PasswordLogin,
                           suffixIcon: IconButton(
                               onPressed: () {
-                                if (_object.visibilitys_obscureText ) {
-                                  _object.setVisibility_obscureText (false);
+                                if (_object.visibilitys_obscureText) {
+                                  _object.setVisibility_obscureText(false);
                                 } else {
-                                  _object.setVisibility_obscureText (true);
+                                  _object.setVisibility_obscureText(true);
                                 }
                               },
                               icon: Icon(_object.visibilitys_obscureText
                                   ? Icons.visibility
                                   : Icons.visibility_off)),
-                          obscureText: _object.visibilitys_obscureText ),
+                          obscureText: _object.visibilitys_obscureText),
                       SizedBox(
                         height: 16.h,
                       ),
@@ -80,14 +78,13 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            onTap: () {
-                             },
+                            onTap: () {},
                             child: Text(
                               'Forgot Password?',
-                              style: TextStyleConst().customTextStyle(
-                                  fontFamily: 'inter',
+                              style: TextStyle(
+                                  fontSize: 14.sp,
                                   color: Colors.black,
-                                  size: 14,
+                                  fontFamily: 'inter',
                                   fontWeight: FontWeight.w500),
                             ),
                           )
@@ -98,13 +95,16 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          _object.Login(context: context);
                           // Navigator.popAndPushNamed(context,'Login_Screen');
                         },
-                        child: Text('Login',
-                            style: TextStyleConst().customTextStyle(
-                                fontFamily:'inter',
-                                size: 16,
-                                fontWeight: FontWeight.w700)),
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'inter',
+                              fontWeight: FontWeight.w700),
+                        ),
                         style: ElevatedButton.styleFrom(
                           minimumSize: Size(311.03.w, 56.h),
                           shape: RoundedRectangleBorder(
@@ -121,10 +121,10 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Or continue with',
                             textAlign: TextAlign.center,
-                            style: TextStyleConst().customTextStyle(
-                                fontFamily: 'inter',
+                            style: TextStyle(
+                                fontSize: 14.sp,
                                 color: Colors.black,
-                                size: 14,
+                                fontFamily: 'inter',
                                 fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
@@ -134,6 +134,7 @@ class LoginScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               FloatingActionButton(
+                                  heroTag: 'Google',
                                   onPressed: () {
                                     Navigator.popAndPushNamed(context, '/');
                                   },
@@ -144,6 +145,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               FloatingActionButton(
                                   onPressed: () {},
+                                  heroTag: 'Facebook',
                                   backgroundColor: Colors.white,
                                   child:
                                       Image.asset('assets/icons/Facebook.png')),
@@ -160,10 +162,10 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Don’t have an account?',
                             textAlign: TextAlign.center,
-                            style: TextStyleConst().customTextStyle(
-                                fontFamily: 'inter',
+                            style: TextStyle(
+                                fontSize: 14.sp,
                                 color: Colors.black,
-                                size: 14,
+                                fontFamily: 'inter',
                                 fontWeight: FontWeight.w500),
                           ),
                           TextButton(
@@ -171,15 +173,13 @@ class LoginScreen extends StatelessWidget {
                               Navigator.popAndPushNamed(
                                   context, 'SingUp_Screen');
                             },
-                            child: Text(
-                              'Sign Up',
-                              textAlign: TextAlign.center,
-                              style: TextStyleConst().customTextStyle(
-                                  fontFamily: 'inter',
-                                  color: Color(0xffEF67AC),
-                                  size: 14,
-                                  fontWeight: FontWeight.w500),
-                            ),
+                            child: Text('Sign Up',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: 'inter',
+                                    color: Color(0xffEF67AC),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500)),
                           )
                         ],
                       )

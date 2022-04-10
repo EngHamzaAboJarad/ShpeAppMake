@@ -104,7 +104,9 @@ class HomeScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 8.0.h),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        BlocProvider.of<HomeCubitBloc>(context).SetChangIndexScreens(1);
+                      },
                       child: Text('View All',
                           style: TextStyleConst().customTextStyle(
                               fontFamily: TextsConst().inter,

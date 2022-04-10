@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shopemakeup/Block/auth_block/bloc_cubit_auth.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -133,7 +135,8 @@ class AccountScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.popAndPushNamed(context,'Login_Screen');
+                BlocProvider.of<AuthCubitBloc>(context).Logout();
+                Navigator.popAndPushNamed(context,'Login_Screen');
               },
               child: Text('Logout',
                   style: TextStyleConst().customTextStyle(
