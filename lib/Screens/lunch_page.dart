@@ -62,7 +62,7 @@ class LunchScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, 'Login_Screen');
+                      Navigator.pushReplacementNamed(context, 'Login_Screen');
                     },
                     child: Text(
                       'Login',
@@ -84,7 +84,7 @@ class LunchScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, 'SingUp_Screen');
+                      Navigator.pushReplacementNamed(context, 'SingUp_Screen');
                     },
                     child: Text(
                       'Sign Up',
