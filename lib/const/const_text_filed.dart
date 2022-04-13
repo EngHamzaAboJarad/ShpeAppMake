@@ -19,7 +19,7 @@ class text_filed {
       required TextEditingController controller,
       required TextInputType keyboardType  ,
       suffixIcon,
-      required bool obscureText}) {
+       required bool obscureText}) {
     return TextField(
       cursorColor: Colors.black,
       cursorHeight: 24.h,
@@ -44,7 +44,7 @@ class text_filed {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32.5.r),
             borderSide: const BorderSide(color: Colors.white)),
-      ),
+        ),
     );
   }
 }

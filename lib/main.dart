@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +24,10 @@ import 'package:shopemakeup/Screens/productScreens/detail_product.dart';
 import 'package:shopemakeup/Screens/productScreens/prodct_page.dart';
 import 'package:shopemakeup/Screens/StatusScreen/success.dart';
 
-void main(List<String> args) {
-  runApp(makup());
+void main(List<String> args) async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+   runApp(makup());
 }
 
 class makup extends StatelessWidget {
@@ -62,7 +65,7 @@ class makup extends StatelessWidget {
             'ReviewScreen_Screen': (context) => const ReviewScreen(),
             'WriteReview_Screen': (context) => const WriteReview(),
             'AboutUs_Screen': (context) => const AboutUs(),
-            'ShowAddress_Screen': (context) => const ShowAddress(),
+            'ShowAddress_Screen': (context) =>    ShowAddress(),
             'AddAddress_Screen': (context) => const AddAddress(),
           },
         ),

@@ -39,6 +39,9 @@ dependencies:
   flutter_bloc: ^8.0.1
   url_launcher: ^6.0.20
   flutter_slidable: ^1.2.0
+  firebase_core: ^1.14.0
+  firebase_auth: ^3.3.13
+  git: any
 
 dev_dependencies:
   flutter_test:

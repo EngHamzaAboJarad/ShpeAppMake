@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "770464299688",
+    "project_id": "shopemakeup-4e19d",
+    "storage_bucket": "shopemakeup-4e19d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770464299688:android:30840687a68f3a680d209d",
+        "android_client_info": {
+          "package_name": "com.shope.make.up.flutter.shopemakeup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770464299688-8hu8ugi9p89859lj70btdpaaqeehcpku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shope.make.up.flutter.shopemakeup",
+            "certificate_hash": "9071ad8516a4456e1e4c4efe3b08e8d15c28ba79"
+          }
+        },
+        {
+          "client_id": "770464299688-4d8m24lj07vpq09b2b0i0njs1hdcvjb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFnL8do406BKoHj2ULmh923U4uSkJndrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770464299688-4d8m24lj07vpq09b2b0i0njs1hdcvjb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

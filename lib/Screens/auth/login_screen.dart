@@ -51,14 +51,14 @@ class LoginScreen extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           src_img: 'email.png',
                           hintText: 'Email Address',
-                          controller: _object.EmailAdderss,
+                          controller: _object.EmailLogin,
                           obscureText: false),
                       SizedBox(height: 12.h),
                       text_filed().TEXTINPUT(
                           keyboardType: TextInputType.number,
                           src_img: 'lock.png',
                           hintText: 'Password',
-                          controller: _object.Password,
+                          controller: _object.PasswordLogin,
                           suffixIcon: IconButton(
                               onPressed: () {
                                 if (_object.visibilitys_obscureText) {
@@ -95,6 +95,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          _object.Login(context: context);
                           // Navigator.popAndPushNamed(context,'Login_Screen');
                         },
                         child: Text(

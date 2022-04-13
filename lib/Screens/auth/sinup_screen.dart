@@ -49,9 +49,9 @@ class SingUpScreen extends StatelessWidget {
                           height: 64.h,
                         ),
                         text_filed().TEXTINPUT(
-                            keyboardType: TextInputType.datetime,
+                            keyboardType: TextInputType.text,
                             src_img: 'profile.png',
-                            hintText: 'Full Name',
+                             hintText: 'Full Name',
                             controller: _object.FullName,
                             obscureText:   false),
                         SizedBox(
@@ -61,13 +61,13 @@ class SingUpScreen extends StatelessWidget {
                             src_img: 'email.png',
                             keyboardType: TextInputType.emailAddress,
                             hintText: 'Email Address',
-                            controller: _object.EmailAdderss,
+                             controller: _object.EmailAdderss,
                            obscureText:   false),
                         SizedBox(height: 12.h),
                         text_filed().TEXTINPUT(
                             keyboardType: TextInputType.phone,
                             src_img: 'call.png',
-                            hintText: 'Phone Number',
+                             hintText: 'Phone Number',
                             controller: _object.PhoneNumber,
                            obscureText:  false),
                         SizedBox(
@@ -76,7 +76,7 @@ class SingUpScreen extends StatelessWidget {
                         text_filed().TEXTINPUT(
                             src_img: 'lock.png',
                             hintText: 'Password',
-                            keyboardType: TextInputType.text,
+                             keyboardType: TextInputType.text,
                             controller: _object.Password,
                             suffixIcon: IconButton(
                                 onPressed: () {
@@ -95,6 +95,7 @@ class SingUpScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
+                            _object.CreateAccount(context: context);
                             // Navigator.popAndPushNamed(context,'Login_Screen');
                           },
                           child: Text('Sign Up',
