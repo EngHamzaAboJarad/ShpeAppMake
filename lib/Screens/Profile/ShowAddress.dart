@@ -7,8 +7,8 @@ import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
-class ShowAddress extends StatelessWidget {
-  const ShowAddress({Key? key}) : super(key: key);
+class ShowAddressNew extends StatelessWidget {
+  const ShowAddressNew({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
