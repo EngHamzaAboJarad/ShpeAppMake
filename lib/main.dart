@@ -9,7 +9,7 @@ import 'package:shopemakeup/Screens/Profile/ChangePassword.dart';
 import 'package:shopemakeup/Screens/Profile/ChangePhoneNumbe.dart';
 import 'package:shopemakeup/Screens/Profile/Language.dart';
 import 'package:shopemakeup/Screens/Profile/about_us.dart';
-import 'package:shopemakeup/Screens/Profile/addAddress.dart';
+import 'package:shopemakeup/Screens/Profile/ShowAddress.dart';
 import 'package:shopemakeup/Screens/Profile/notification%20_setting.dart';
 import 'package:shopemakeup/Screens/Profile/setting.dart';
 import 'package:shopemakeup/Screens/StatusScreen/eror.dart';
@@ -64,7 +64,7 @@ class makup extends StatelessWidget {
             'ChangePassword_Screen': (context) => const ChangePassword(),
             'ReviewScreen_Screen': (context) => const ReviewScreen(),
             'WriteReview_Screen': (context) => const WriteReview(),
-            'AboutUs_Screen': (context) =>   AboutUs(),
+            'AboutUs_Screen': (context) => const AboutUs(),
             'ShowAddress_Screen': (context) =>    ShowAddress(),
             'AddAddress_Screen': (context) => const AddAddress(),
           },
