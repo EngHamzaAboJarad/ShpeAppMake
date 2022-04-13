@@ -133,4 +133,5 @@ class AuthCubitBloc extends Cubit<AuthStatusBloc> with Helper {
     RegisterController().SignOut();
     emit(LogoutStat());
   }
+
 }
