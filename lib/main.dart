@@ -64,7 +64,7 @@ class makup extends StatelessWidget {
             'ChangePassword_Screen': (context) => const ChangePassword(),
             'ReviewScreen_Screen': (context) => const ReviewScreen(),
             'WriteReview_Screen': (context) => const WriteReview(),
-            'AboutUs_Screen': (context) => const AboutUs(),
+            'AboutUs_Screen': (context) =>   AboutUs(),
             'ShowAddress_Screen': (context) =>    ShowAddress(),
             'AddAddress_Screen': (context) => const AddAddress(),
           },
