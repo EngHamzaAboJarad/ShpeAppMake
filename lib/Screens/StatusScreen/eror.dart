@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
 class ErrorScreen extends StatelessWidget {
@@ -42,7 +42,7 @@ class ErrorScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.popAndPushNamed(context,'/');
-                    BlocProvider.of<HomeCubitBloc>(context).SetIndexPage(0);
+                    Provider.of<ProviderHome>(context,listen: false).SetIndexPage(0);
 
                     // Navigator.popAndPushNamed(context,'Login_Screen');
                   },

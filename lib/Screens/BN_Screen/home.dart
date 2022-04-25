@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
-import 'package:shopemakeup/Block/home_block/bloc_status_home.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+ import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import 'package:shopemakeup/const/const_ItemProduct.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
@@ -14,9 +13,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubitBloc, HomeStatusBloc>(
+    return ChangeNotifierProvider<ProviderHome>(
+      create: (_)=>ProviderHome(),
       builder: (context, state) {
-        int p = BlocProvider.of<HomeCubitBloc>(context).ChangIndexPage;
+        int p =  Provider.of<ProviderHome>(context).ChangIndexPage;
         return SingleChildScrollView(
           child: Column(
             children: [
@@ -25,9 +25,9 @@ class HomeScreen extends StatelessWidget {
                 height: 192.h,
                 child: PageView(
                   controller:
-                      BlocProvider.of<HomeCubitBloc>(context).pageController,
+                  Provider.of<ProviderHome>(context).pageController,
                   onPageChanged: (int b) {
-                    BlocProvider.of<HomeCubitBloc>(context).SetIndexPage(b);
+                    Provider.of<ProviderHome>(context,listen: false).SetIndexPage(b);
                   },
                   children: [
                     Padding(
@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.only(top: 8.0.h),
                     child: GestureDetector(
                       onTap: () {
-                        BlocProvider.of<HomeCubitBloc>(context).SetChangIndexScreens(1);
+                         Provider.of<ProviderHome>(context,listen: false).SetChangIndexScreens(1);
                       },
                       child: Text('View All',
                           style: TextStyleConst().customTextStyle(
@@ -208,7 +208,6 @@ class HomeScreen extends StatelessWidget {
           ),
         );
       },
-      listener: (context, state) {},
     );
   }
 }

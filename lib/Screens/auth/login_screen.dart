@@ -1,22 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_cubit_auth.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_status_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/auth_block/provider_auth.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
-import 'package:shopemakeup/const/const_text_style.dart';
+import 'package:shopemakeup/sharedPreferences/StooregSharedAuth.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubitBloc, AuthStatusBloc>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        AuthCubitBloc _object = AuthCubitBloc().getCubitAuth(context);
-        return Scaffold(
+    var _object = Provider.of<ProviderAuth>(context,listen: false);
+    return ChangeNotifierProvider<ProviderAuth>(
+        create: (context) => ProviderAuth(),
+        child:Scaffold(
           body: Padding(
             padding: EdgeInsets.only(top: 64.h),
             child: SafeArea(
@@ -51,26 +48,37 @@ class LoginScreen extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           src_img: 'email.png',
                           hintText: 'Email Address',
+                          enabled: true,
                           controller: _object.EmailLogin,
                           obscureText: false),
                       SizedBox(height: 12.h),
                       text_filed().TEXTINPUT(
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.text,
                           src_img: 'lock.png',
                           hintText: 'Password',
+                          enabled: true,
                           controller: _object.PasswordLogin,
                           suffixIcon: IconButton(
                               onPressed: () {
-                                if (_object.visibilitys_obscureText) {
-                                  _object.setVisibility_obscureText(false);
-                                } else {
-                                  _object.setVisibility_obscureText(true);
-                                }
+                                if (
+                                Provider.of<ProviderAuth>(context,listen: false).
+                                visibilitys_obscureText) {
+                                  Provider.of<ProviderAuth>(context,
+                                      listen: false)
+                                      .setVisibility_obscureText(false);
+                                 } else {
+                                  Provider.of<ProviderAuth>(context,
+                                      listen: false)
+                                      .setVisibility_obscureText(true);
+                                 }
                               },
-                              icon: Icon(_object.visibilitys_obscureText
+                              icon: Icon(Provider.of<ProviderAuth>(context)
+                                  .visibilitys_obscureText
                                   ? Icons.visibility
                                   : Icons.visibility_off)),
-                          obscureText: _object.visibilitys_obscureText),
+                          obscureText:
+                          Provider.of<ProviderAuth>(context, listen: false)
+                              .visibilitys_obscureText),
                       SizedBox(
                         height: 16.h,
                       ),
@@ -78,7 +86,10 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, 'ChangePassword_Screen');
+                            },
                             child: Text(
                               'Forgot Password?',
                               style: TextStyle(
@@ -99,7 +110,7 @@ class LoginScreen extends StatelessWidget {
                           // Navigator.popAndPushNamed(context,'Login_Screen');
                         },
                         child: Text(
-                          'Login',
+                          'Login ${storegAuthShared().emailUser}',
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontFamily: 'inter',
@@ -136,7 +147,7 @@ class LoginScreen extends StatelessWidget {
                               FloatingActionButton(
                                   heroTag: 'Google',
                                   onPressed: () {
-                                    Navigator.popAndPushNamed(context, '/');
+                                    _object.SignInWithGoogle(context);
                                   },
                                   child: Image.asset('assets/icons/google.png'),
                                   backgroundColor: Colors.white),
@@ -148,7 +159,7 @@ class LoginScreen extends StatelessWidget {
                                   heroTag: 'Facebook',
                                   backgroundColor: Colors.white,
                                   child:
-                                      Image.asset('assets/icons/Facebook.png')),
+                                  Image.asset('assets/icons/Facebook.png')),
                             ],
                           ),
                         ],
@@ -189,8 +200,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-        );
-      },
+        )
     );
   }
 }

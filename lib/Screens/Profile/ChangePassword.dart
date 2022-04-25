@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_cubit_auth.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_status_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/auth_block/provider_auth.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
@@ -12,6 +11,7 @@ class ChangePassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _object = Provider.of<ProviderAuth>(context,listen: false);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -37,11 +37,7 @@ class ChangePassword extends StatelessWidget {
               fontWeight: FontWeight.w700),
         ),
       ),
-      body: BlocConsumer<AuthCubitBloc, AuthStatusBloc>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          AuthCubitBloc _object = AuthCubitBloc().getCubitAuth(context);
-          return Padding(
+      body:  Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.h, vertical: 14.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,50 +47,50 @@ class ChangePassword extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Current Password',
-                        style: TextStyleConst().customTextStyle(
-                            fontFamily: 'inter',
-                            color: Colors.black,
-                            size: 14,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      text_filed().TEXTINPUT(
-                          keyboardType: TextInputType.text,
-                          hintText: '********',
-                          controller: _object.CurrentPasswordController,
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                if (_object.visibilitys_Password1_obscureText) {
-                                  _object.setVisibilityPassword1_obscureText(
-                                      false);
-                                } else {
-                                  _object
-                                      .setVisibilityPassword1_obscureText(true);
-                                }
-                              },
-                              icon: Icon(
-                                  _object.visibilitys_Password1_obscureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off)),
-                          obscureText:
-                              _object.visibilitys_Password1_obscureText),
-                      SizedBox(
-                        height: 14.h,
-                      ),
-                      Text(
                         'New Password',
                         style: TextStyleConst().customTextStyle(
                             fontFamily: 'inter',
-                            size: 14,
                             color: Colors.black,
+                            size: 14,
                             fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
+                      // text_filed().TEXTINPUT(
+                      //     keyboardType: TextInputType.text,
+                      //     hintText: '********',
+                      //     controller: _object.CurrentPasswordController,
+                      //     suffixIcon: IconButton(
+                      //         onPressed: () {
+                      //           if (_object.visibilitys_Password1_obscureText) {
+                      //             _object.setVisibilityPassword1_obscureText(
+                      //                 false);
+                      //           } else {
+                      //             _object
+                      //                 .setVisibilityPassword1_obscureText(true);
+                      //           }
+                      //         },
+                      //         icon: Icon(
+                      //             _object.visibilitys_Password1_obscureText
+                      //                 ? Icons.visibility
+                      //                 : Icons.visibility_off)),
+                      //     obscureText:
+                      //         _object.visibilitys_Password1_obscureText),
+                      // SizedBox(
+                      //   height: 14.h,
+                      // ),
+                      // Text(
+                      //   'New Password',
+                      //   style: TextStyleConst().customTextStyle(
+                      //       fontFamily: 'inter',
+                      //       size: 14,
+                      //       color: Colors.black,
+                      //       fontWeight: FontWeight.w500),
+                      // ),
+                      // SizedBox(
+                      //   height: 6.h,
+                      // ),
                       text_filed().TEXTINPUT(
                           keyboardType: TextInputType.text,
                           hintText: '********',
@@ -111,6 +107,9 @@ class ChangePassword extends StatelessWidget {
                                   ? Icons.visibility
                                   : Icons.visibility_off)),
                           obscureText: _object.visibilitys_Password2_obscureText),
+                      SizedBox(
+                        height: 12.h,
+                      ),
                       Text(
                         'Repeat New Password',
                         style: TextStyleConst().customTextStyle(
@@ -143,6 +142,7 @@ class ChangePassword extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                     Provider.of<ProviderAuth>(context).ForgetPass(context);
                     //TODO Change Phone Number
                   },
                   child: Text('Change Password',
@@ -161,8 +161,6 @@ class ChangePassword extends StatelessWidget {
                 ),
               ],
             ),
-          );
-        },
       ),
     );
   }

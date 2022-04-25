@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
-import 'package:shopemakeup/Block/home_block/bloc_status_home.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
@@ -11,6 +10,7 @@ class NotificationSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var object = Provider.of<ProviderHome>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -36,11 +36,7 @@ class NotificationSetting extends StatelessWidget {
               fontWeight: FontWeight.w700),
         ),
       ),
-      body: BlocConsumer<HomeCubitBloc, HomeStatusBloc>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          HomeCubitBloc object =  HomeCubitBloc().getCubitHome(context);
-          return Padding(
+      body:Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.h),
             child: ListView(
               children: [
@@ -112,8 +108,6 @@ class NotificationSetting extends StatelessWidget {
                 ),
               ],
             ),
-          );
-        },
       ),
     );
   }

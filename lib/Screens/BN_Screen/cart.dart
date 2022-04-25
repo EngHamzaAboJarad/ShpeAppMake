@@ -1,9 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
@@ -438,7 +436,7 @@ class CartScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   text_filed().TEXTINPUT(
-                    controller: BlocProvider.of<HomeCubitBloc>(context).copon,
+                    controller: Provider.of<ProviderHome>(context).copon,
                     keyboardType: TextInputType.text,
                     obscureText: false,
                     hintText: 'Enter Coupon Code',

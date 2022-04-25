@@ -19,29 +19,36 @@ class text_filed {
       required TextEditingController controller,
       required TextInputType keyboardType  ,
       suffixIcon,
+        enabled = true,
        required bool obscureText}) {
     return TextField(
       cursorColor: Colors.black,
       cursorHeight: 24.h,
       keyboardType:keyboardType,
-      controller: controller,
+       controller: controller,
       obscureText: obscureText,
       maxLines: lineCount,
       style: TextStyleConst().customTextStyle(
           fontFamily: TextsConst().inter,
           size: 14,
-          color: Colors.black,
+          color:enabled?Colors.black:Colors.white,
           fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xffFFFFFF),
+        fillColor: enabled?Color(0xffFFFFFF):Colors.black12,
         hintText: hintText,
+        helperStyle: TextStyle(
+          color: enabled?Colors.black:Colors.white,
+        ),
         prefixIcon:  src_img  != null?Image.asset('assets/icons/$src_img'):null,
         suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32.5.r),
             borderSide: const BorderSide(color: Colors.white)),
         focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32.5.r),
+            borderSide: const BorderSide(color: Colors.white)),
+        disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32.5.r),
             borderSide: const BorderSide(color: Colors.white)),
         ),

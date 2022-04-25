@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
+import 'package:shopemakeup/sharedPreferences/StooregSharedAuth.dart';
  
-class LunchScreen extends StatelessWidget {
+class LunchScreen extends StatefulWidget {
   const LunchScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LunchScreen> createState() => _LunchScreenState();
+}
+
+class _LunchScreenState extends State<LunchScreen> {
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 3),() {
+      if(storegAuthShared().IsLogged){
+        Navigator.pushReplacementNamed(
+            context, '/');
+      }else{
+        Navigator.pushReplacementNamed(
+            context, 'Login_Screen');
+      }
+    },);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(

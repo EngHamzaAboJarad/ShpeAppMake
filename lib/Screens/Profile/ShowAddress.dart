@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_cubit_auth.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_status_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/auth_block/provider_auth.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
@@ -12,6 +11,7 @@ class ShowAddressNew extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _object = Provider.of<ProviderAuth>(context,listen: false);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,11 +38,7 @@ class ShowAddressNew extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      body: BlocConsumer<AuthCubitBloc, AuthStatusBloc>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            AuthCubitBloc _object = AuthCubitBloc().getCubitAuth(context);
-            return Padding(
+      body:Padding(
               padding:   EdgeInsets.symmetric(horizontal: 24.h,vertical: 23.h),
               child: Column(
                 children: [
@@ -115,7 +111,7 @@ class ShowAddressNew extends StatelessWidget {
                               Container(
                                 width: 255.w,
                                 height: 80.h,
-                                child: Text('Akshya Nagar 1st Block 1st Cross,Ramimurit nagar, Bangalore-560016',
+                                child: Text('Akshya Nagar 1st Provider 1st Cross,Ramimurit nagar, Bangalore-560016',
                                   maxLines: 3,
                                   style: TextStyleConst().customTextStyle(
                                       fontFamily: TextsConst().inter,
@@ -183,7 +179,7 @@ class ShowAddressNew extends StatelessWidget {
                               Container(
                                 width: 255.w,
                                 height: 80.h,
-                                child: Text('Akshya Nagar 1st Block 1st Cross,Ramimurit nagar, Bangalore-560016',
+                                child: Text('Akshya Nagar 1st Provider 1st Cross,Ramimurit nagar, Bangalore-560016',
                                   maxLines: 3,
                                   style: TextStyleConst().customTextStyle(
                                       fontFamily: TextsConst().inter,
@@ -262,8 +258,7 @@ class ShowAddressNew extends StatelessWidget {
 
                 ],
               ),
-            );
-          }),
+            ),
     );
   }
 }
