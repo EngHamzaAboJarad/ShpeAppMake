@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
-import 'package:shopemakeup/Block/home_block/bloc_status_home.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import 'package:shopemakeup/const/const_text.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 
@@ -43,8 +42,8 @@ class ProductDesc extends StatelessWidget {
               icon: Image.asset('assets/icons/Search.png'))
         ],
       ),
-      body: BlocConsumer<HomeCubitBloc, HomeStatusBloc>(
-        listener: (context, state) {},
+      body: ChangeNotifierProvider<ProviderHome>(
+        create: (context)=>ProviderHome(),
         builder: (context, state) => Stack(
           children: [
             Padding(
@@ -56,9 +55,9 @@ class ProductDesc extends StatelessWidget {
                     height: 260.h,
                     child: PageView(
                       controller:
-                          BlocProvider.of<HomeCubitBloc>(context).pageController,
+                          Provider.of<ProviderHome>(context).pageController,
                       onPageChanged: (int b) {
-                        BlocProvider.of<HomeCubitBloc>(context).SetIndexPage(b);
+                        Provider.of<ProviderHome>(context,listen: false).SetIndexPage(b);
                       },
                       children: [
                         Padding(
@@ -106,8 +105,7 @@ class ProductDesc extends StatelessWidget {
                       Icon(
                         Icons.circle,
                         size: 12.w,
-                        color: BlocProvider.of<HomeCubitBloc>(context)
-                                    .ChangIndexPage ==
+                        color:  Provider.of<ProviderHome>(context).ChangIndexPage ==
                                 0
                             ? Color(0xf0F178B6)
                             : Colors.grey,
@@ -115,7 +113,7 @@ class ProductDesc extends StatelessWidget {
                       Icon(
                         Icons.circle,
                         size: 12.w,
-                        color: BlocProvider.of<HomeCubitBloc>(context)
+                        color: Provider.of<ProviderHome>(context)
                                     .ChangIndexPage ==
                                 1
                             ? Color(0xf0F178B6)
@@ -124,8 +122,7 @@ class ProductDesc extends StatelessWidget {
                       Icon(
                         Icons.circle,
                         size: 12.w,
-                        color: BlocProvider.of<HomeCubitBloc>(context)
-                                    .ChangIndexPage ==
+                        color: Provider.of<ProviderHome>(context).ChangIndexPage ==
                                 2
                             ? Color(0xf0F178B6)
                             : Colors.grey,

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+ import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 import '../../const/const_text.dart';
 import '../../const/const_text_style.dart';
 
@@ -27,7 +27,7 @@ class ProductPage extends StatelessWidget {
         leading: IconButton(
           onPressed: (){
             Navigator.popAndPushNamed(context,'/');
-            BlocProvider.of<HomeCubitBloc>(context).SetChangIndexScreens(1);
+            Provider.of<ProviderHome>(context,listen: false).SetChangIndexScreens(1);
           },
           icon: Icon(Icons.arrow_back_ios,color: Colors.black,size: 24.w,),
         ),

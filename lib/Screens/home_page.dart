@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shopemakeup/Block/home_block/bloc_cubit_home.dart';
-import 'package:shopemakeup/Block/home_block/bloc_status_home.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:shopemakeup/Provider/home_block/provider_home.dart';
 
 class HomeSecreen extends StatelessWidget {
   const HomeSecreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubitBloc, HomeStatusBloc>(
-        listener: (context, state) {},
+    return ChangeNotifierProvider <ProviderHome>(
+        create: (context)=>ProviderHome(),
         builder: (context, state) {
-          int index = BlocProvider.of<HomeCubitBloc>(context).ChangIndexScreens;
+          int index = Provider.of<ProviderHome>(context).ChangIndexScreens;
           return Scaffold(
             body: Scaffold(
-              appBar:BlocProvider.of<HomeCubitBloc>(context).ChangIndexScreens != 1
-                     &&BlocProvider.of<HomeCubitBloc>(context).ChangIndexScreens != 3?AppBar(
+              appBar:Provider.of<ProviderHome>(context).ChangIndexScreens != 1
+                     &&Provider.of<ProviderHome>(context).ChangIndexScreens != 3?AppBar(
                 actions: [
-                  BlocProvider.of<HomeCubitBloc>(context).ChangIndexScreens == 0
+                    Provider.of<ProviderHome>(context).ChangIndexScreens == 0
                       ? GestureDetector(
                           onTap: () {},
                           child: Image.asset('assets/icons/Search.png'),
@@ -27,8 +26,7 @@ class HomeSecreen extends StatelessWidget {
                 ],
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                title: BlocProvider.of<HomeCubitBloc>(context)
-                    .HomeScreens
+                title:Provider.of<ProviderHome>(context).HomeScreens
                     .elementAt(index)
                     .title,
                 centerTitle: true,
@@ -39,8 +37,7 @@ class HomeSecreen extends StatelessWidget {
                   unselectedItemColor: Color(0xffC4C4C4),
                   currentIndex: index,
                   onTap: (value) {
-                    BlocProvider.of<HomeCubitBloc>(context)
-                        .SetChangIndexScreens(value);
+                    Provider.of<ProviderHome>(context,listen: false).SetChangIndexScreens(value);
                   },
                   items: [
                     BottomNavigationBarItem(
@@ -91,7 +88,7 @@ class HomeSecreen extends StatelessWidget {
                         ),
                         label: 'Account'),
                   ]),
-              body: BlocProvider.of<HomeCubitBloc>(context).HomeScreens.elementAt(index).body,
+              body: Provider.of<ProviderHome>(context).HomeScreens.elementAt(index).body,
             ),
           );
         });

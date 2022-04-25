@@ -1,8 +1,4 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopemakeup/Block/auth_block/bloc_status_auth.dart';
-import 'package:shopemakeup/Block/home_block/bloc_status_home.dart';
 import 'package:shopemakeup/Screens/BN_Screen/account.dart';
 import 'package:shopemakeup/Screens/BN_Screen/cart.dart';
 import 'package:shopemakeup/Screens/BN_Screen/category.dart';
@@ -11,10 +7,8 @@ import 'package:shopemakeup/Screens/BN_Screen/notification.dart';
 import 'package:shopemakeup/const/const_text_style.dart';
 import 'package:shopemakeup/models/bn_screen_model.dart';
 
-class HomeCubitBloc extends Cubit<HomeStatusBloc> {
-  HomeCubitBloc() : super(InitStatuss());
-  HomeCubitBloc getCubitHome(context) => BlocProvider.of(context);
-  List<bnScreen> HomeScreens = [
+class ProviderHome  extends ChangeNotifier{
+   List<bnScreen> HomeScreens = [
     bnScreen(title:   TextStyleConst().titleApp() ,body: HomeScreen()),
     bnScreen(title: null,body: const CategoryScreen()),
     bnScreen(title: const Text('Cart',style: TextStyle(color: Color(0xffF178B6)),), body:  CartScreen()),
@@ -25,30 +19,30 @@ class HomeCubitBloc extends Cubit<HomeStatusBloc> {
   int ChangIndexScreens = 0;
   void SetChangIndexScreens(int i){
     ChangIndexScreens = i;
-    emit(StatusChangIndexScreens());
+    notifyListeners();
   }
   PageController pageController = PageController();
   int ChangIndexPage = 0;
   void SetIndexPage(int i){
     ChangIndexPage = i;
-    emit(StatusChangIndexPage());
+    notifyListeners();
   }
   bool Switch1 = false,Switch2 = false,Switch3 = false;
   void setSwitch1(bool v){
-    emit(StatusSwitch1());
-    Switch1 = v;
+     Switch1 = v;
+     notifyListeners();
   }
   void setSwitch2(bool v){
-    emit(StatusSwitch2());
-    Switch2 = v;
+     Switch2 = v;
+     notifyListeners();
   }
   void setSwitch3(bool v){
-    emit(StatusSwitch3());
-    Switch3 = v;
+     Switch3 = v;
+     notifyListeners();
   }
   String language = 'Arabic';
   void setLanguage(String h){
-    emit(StatusLanguage());
-    language = h;
+     language = h;
+     notifyListeners();
   }
 }
