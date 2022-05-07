@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">360383069377321</string>
+    <string name="facebook_client_token">dd579f42f2d223261fcde85c55b45f68</string>
+    <string name="app_name">Flutter App MakeUpShop</string>
+</resources>

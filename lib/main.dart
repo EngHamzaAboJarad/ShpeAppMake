@@ -37,7 +37,7 @@ class   makup extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ProviderAuth>(create: (_)=>ProviderAuth()),
-        ChangeNotifierProvider<ProviderHome>(create: (_)=>ProviderHome())
+        ChangeNotifierProvider<ProviderHome>(create: (_)=>ProviderHome() )
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),

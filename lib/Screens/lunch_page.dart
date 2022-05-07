@@ -13,7 +13,7 @@ class LunchScreen extends StatefulWidget {
 class _LunchScreenState extends State<LunchScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3),() {
+    Future.delayed(Duration(seconds: 2),() {
       if(storegAuthShared().IsLogged){
         Navigator.pushReplacementNamed(
             context, '/');
@@ -21,7 +21,8 @@ class _LunchScreenState extends State<LunchScreen> {
         Navigator.pushReplacementNamed(
             context, 'Login_Screen');
       }
-    },);
+    },
+    );
     super.initState();
   }
   @override

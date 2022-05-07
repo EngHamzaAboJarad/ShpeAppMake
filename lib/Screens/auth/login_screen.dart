@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:shopemakeup/Provider/auth_block/provider_auth.dart';
 import 'package:shopemakeup/const/const_text_filed.dart';
 import 'package:shopemakeup/sharedPreferences/StooregSharedAuth.dart';
-
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
   @override
@@ -155,7 +154,9 @@ class LoginScreen extends StatelessWidget {
                                 width: 32.h,
                               ),
                               FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: ()  {
+                                     _object.SignInWithFaceBook(context);
+                                  },
                                   heroTag: 'Facebook',
                                   backgroundColor: Colors.white,
                                   child:

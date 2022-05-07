@@ -119,10 +119,18 @@ class SingUpScreen extends StatelessWidget {
                         height: 25.h,
                       ),
                       ElevatedButton(
-                        onPressed: () {
-                          //
+                        onPressed: () async{
                            Provider.of<ProviderAuth>(context,listen: false).setEnabledTextFields(false);
-                           _object.CreateAccount(context: context);
+                           await Provider.of<ProviderAuth>(context,listen: false).
+                           CreateAccount(context: context, Phone: _object.PhoneNumber.text,
+                             email: _object.EmailAdderss.text,fullName: _object.FullName.text,
+                             password: _object.Password.text
+                           ).then((value) {
+                             _object.FullName.text = '';
+                             _object.PhoneNumber.text = '';
+                             _object.EmailAdderss.text = '';
+                             _object.Password.text = '';
+                           });
                           // Navigator.popAndPushNamed(context,'Login_Screen');
                          },
                         child: Text('Sign Up',
